@@ -1,0 +1,26 @@
+- 다른 사람의 글 삭제가능(권한)
+- 글쓰기 textarea hidden? -> 아마 오류?
+
+ETC
+- [서버 에러 노출] http://39.117.226.229:8881/ckfinder/userfiles/files/t123.php.jpg1234
+- [서버 정보 노출] http://39.117.226.229:8881/ckfinder/userfiles/files/t123.php.jpg1234
+
+LOGIN
+- [SQLi] userid=admin'#&password=1
+    - [SQLi] 관리자 로그인 시 user table 모두 조회 가능
+
+BOARD
+- [XSS] 글 본문 XSS
+- [XSS] 글 제목 XSS
+- [?] 글 writer 변경 시 write_proc.php에서 "변조금지" 나옴
+    - [XSS] 계정 닉네임 <script>alert(1)</script>로 가입 시 writer에 XSS -> 모든 입력값에 대해
+    - [XSS] /admin/user.php 존재 -> 모든 입력값에 대한
+- [파일 다운로드] 첨부파일 다운로드 시 ../../../../../../../../etc/passwd 가능
+- [?] 화이트리스트 기반의 업로드 필터링
+- [SQLi] http://39.117.226.229:8881/board.php?idx=-1%27%20or%201=1%20%23
+    - [SQLi] sql query 조작 가능
+
+BOARD > 임직원 게시판
+일반 게시판 : http://39.117.226.229:8881/board.php?idx=1
+임직원 게시판 : http://39.117.226.229:8881/board.php?idx=3
+관리자 게시판 : http://39.117.226.229:8881/board.php?idx=10
